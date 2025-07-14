@@ -18,34 +18,40 @@ Step 3: Middle is 5. Found it!
 Binary search has O(log n) time complexity, which makes it extremely efficient. This means that for an array of 1 million elements, you'd need at most about 20 comparisons to find any element. Compare this to linear search, which might need up to 1 million comparisons in the worst case.The algorithm requires the data to be sorted beforehand. If your data isn't sorted, you'd need to sort it first.
 '''
 
-def find(search_list, value):
+# My implementation of the task
+def binary_search(sorted_list, value):
+    """
+    Performs a binary search on a sorted list to find the given value.
+    Parameters:
+        sorted_list (list): The sorted list of elements to search.
+        value (any): The value to search for in the list.
+    Returns:
+        int: The index of the value in the sorted list if found.
+    Raises:
+        ValueError: If the value is not found in the list.
+    """
 
-    sorted_list = search_list
-    sorted_list.sort()
-
-    base = 0
     high = len(sorted_list) - 1
+    low = 0
 
-    while base <= high:
-        if not sorted_list:
-            return -1
-    
-        mid = (base + high) // 2
+    while low <= high:
+        mid = (low + high) // 2
 
         if sorted_list[mid] == value:
             return mid
         elif sorted_list[mid] > value:
             high = mid - 1
         else:
-            base = mid + 1
+            low = mid + 1
 
     raise ValueError("value not in array")
 
 
+# This is not a binary search, but it give the same result, it is slower than binary search
+def find(search_list, value):
 
-
-
-print(find([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377], 21))
+    if value in search_list:
+        return search_list.index(value)
+    else:
+        raise ValueError("value not in array")
     
-
-        
