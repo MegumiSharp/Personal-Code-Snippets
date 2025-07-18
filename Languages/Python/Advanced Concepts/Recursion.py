@@ -22,9 +22,8 @@ def factorial(num):
     return num * factorial(num - 1)
 
 
-# Approccio iterativo per il fattoriale
+# Approccio iterativo per il fattoriale (A differenza del fattoriale questa funzione riesce a calcolare numeri superiori a 1000)
 def iter_factorial(num):
-    
     if num <= 1:
         return 1
     
@@ -35,6 +34,3 @@ def iter_factorial(num):
         num -= 1
     
     return result
-
-
-print(iter_factorial(1000))

@@ -1,59 +1,40 @@
+# Implementazione di una coda (Queue) utilizzando una lista Python.
+# La coda segue il principio FIFO (First In, First Out): il primo elemento inserito è il primo ad essere rimosso.
 class Queue:
-    """
-    Implementazione di una coda (Queue) utilizzando una lista Python.
     
-    La coda segue il principio FIFO (First In, First Out): 
-    il primo elemento inserito è il primo ad essere rimosso.
-    """
-    
+    # Utilizza una lista Python per memorizzare gli elementi.
     def __init__(self):
-        """
-        Inizializza una coda vuota.
-        Utilizza una lista Python per memorizzare gli elementi.
-        """
         self.items = []
 
+    # Aggiunge un elemento alla fine della coda.
     def enqueue(self, value):
-        """
-        Aggiunge un elemento alla fine della coda.
-        """
         return self.items.append(value)
 
+    # Rimuove e restituisce il primo elemento della coda.
+    # Utilizza pop(0) che ha complessità O(n) perché tutti gli elementi devono essere spostati.
     def dequeue(self):
-        """
-        Rimuove e restituisce il primo elemento della coda. Utilizza pop(0) che ha complessità O(n) perché tutti gli elementi devono essere spostati.
-        """
         if self.is_empty():
             raise IndexError("Dequeue da coda vuota")
         
         return self.items.pop(0)
 
+    # Restituisce il primo elemento della coda senza rimuoverlo.
     def front(self):
-        """
-        Restituisce il primo elemento della coda senza rimuoverlo.
-        """
         if self.is_empty():
             raise IndexError("Coda vuota")
         
         return self.items[0]
 
+    # Verifica se la coda è vuota.
     def is_empty(self):
-        """
-        Verifica se la coda è vuota.
-        """
         return len(self.items) == 0
     
+    # Restituisce il numero di elementi nella coda.
     def size(self):
-        """
-        Restituisce il numero di elementi nella coda.
-        """
         return len(self.items)
 
+    # Stampa tutti gli elementi della coda.
     def print_queue(self):
-        """
-        Stampa tutti gli elementi della coda.
-        """
-
         print(self.items)
         
 

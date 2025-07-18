@@ -70,3 +70,5 @@ new_hash.put("Simone", 2)
 
 # Print dei bucket
 new_hash.__print_map__()
+
+print(range(1, 4 + 1))
